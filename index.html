@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="icon" type="image/png" href="image/favicon.ico">
-    <title>Gửi Thu Hiền</title>
+    <title>Chúc mừng quốc tế phụ nữ</title>
     <link type="text/css" rel="stylesheet" href="./renxi/default.css">
     <script type="text/javascript" src="./renxi/jquery.min.js"></script>
     <script type="text/javascript" src="./renxi/jscex.min.js"></script>
@@ -19,33 +19,34 @@
 
 <body>
 
-    <audio autoplay="autoplay">
-        <source src="./music/I-Do-911.mp3" type="audio/mp3" />
+    <audio loop autoplay muted>
+        <source src="./music/123EmYeuAnh.MP3" type="audio/mp3" />
+        <!-- <source src="./music/WrongTimes-PuppyVietNamDangrangto-9475978.mp3" type="audio/mp3" /> -->
     </audio>
 
     <div id="main">
         <div id="wrap">
-            <div id="text" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;">
+            <div id="text">
                 <div id="code">
-                    <font color="#0000FF"><span class="say">Hi Thu Hien yeu dau !</span><br>
-                        <span class="say"> </span><br>
-                        <span class="say">8/3 sắp tới này chúc em sẽ có một ngày thật ý nghĩa</span><br>
-                        <span class="say">Dù 8/3 hay bất kể ngày nào đi nữa mong em vẫn luôn vui vẻ, yêu đời bớt suy nghĩ tiêu
-                            cực đi he ...</span><br>
-                        <span class="say"></span><br>
-                        <span class="say"><span class="space"><img src="./image/tym.png" alt=""><br>
-                                <!-- <span class="say"><span class="space"></span> --I Love You--</span> -->
+                    <font color="#000000">
+                        <h1 class="title">Happy Women's Day</h1>
+                        <p class="say">Chào người đẹp! 😍💖✨</p>
+                        <p class="say">
+                            🎉 Chúc người đẹp ngày 8/3 nhận được thật nhiều hoa, và… ít deadline hơn!
+                        </p>
+                        <p class="say">
+                            Luôn tươi cười và yêu đời như bây giờ nha! 😆
+                        </p>
+                        <p class="say">
+                            🌸 Không chỉ 8/3 mà mọi ngày trong năm, chúc bạn luôn mạnh khỏe, xinh đẹp, tự tin và tràn đầy năng lượng.
+                        </p>
+                        <p class="say signature">
+                            Coded by <del>Chat GPT</del> Lê Hoàng Nhi
+                        </p>
+                        <div class="lehoangnhi"></div>
+                        <!-- <img src="./image/stickman-removebg-preview.png" alt="Lê Hoàng Nhi" class="lehoangnhi"><br> -->
                     </font>
-                    </p>
                 </div>
-            </div>
-            <div id="clock-box">
-                <!-- <span class="STYLE1"></span><font color="#FF0000">Ngày 8/3 cuối cùng ta ngồi với nhau đến nay đã....</font> -->
-
-                <!-- <div id="clock"></div> -->
-
-                <div id="countdown"></div>
-
             </div>
             <canvas id="canvas" width="1100" height="680"></canvas>
         </div>
@@ -53,9 +54,7 @@
     </div>
 
     <script>
-    </script>
 
-    <script>
         (function () {
             var canvas = $('#canvas');
 
@@ -72,7 +71,7 @@
                 seed: {
                     x: width / 2 - 20,
                     color: "rgb(190, 26, 37)",
-                    scale: 2
+                    scale: 3
                 },
                 branch: [
                     [535, 680, 570, 250, 500, 200, 30, 100, [
@@ -110,6 +109,13 @@
             var hold = 1;
 
             canvas.click(function (e) {
+                document.addEventListener("click", () => {
+                    const audio = document.querySelector("audio");
+                    audio.muted = false;
+                    audio.volume = 0.5;
+                    audio.play();
+                });
+
                 var offset = canvas.offset(),
                     x, y;
                 x = e.pageX - offset.left;
@@ -121,8 +127,7 @@
                     canvas.removeClass('hand');
                 }
             }).mousemove(function (e) {
-                var offset = canvas.offset(),
-                    x, y;
+                var offset = canvas.offset(), x, y;
                 x = e.pageX - offset.left;
                 y = e.pageY - offset.top;
                 canvas.toggleClass('hand', seed.hover(x, y));
@@ -183,35 +188,7 @@
                 }
             }));
 
-            var updateCountdown = function () {
-                var currentTime = new Date();
-                var targetTime = new Date(2024, 2, 8); // March is represented as 2
-                var timeDifference = targetTime - currentTime;
-
-                if (timeDifference > 0) {
-                    var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                    $("#countdown").html( days + " Ngày " + hours + " giờ " + minutes + " phút " + seconds + " giây ");
-                } else {
-                    $("#countdown").html("Countdown expired!");
-                }
-            };
-
-            var startCountdown = function () {
-                setInterval(updateCountdown, 1000);
-            };
-
             var textAnimate = eval(Jscex.compile("async", function () {
-                var together = new Date();
-                together.setFullYear(2024, 2, 3); // tháng được đánh từ 0 - 11 Tức là tháng 1 là 0, tháng 2 là 1 và tiếp tục
-                together.setHours(0);
-                together.setMinutes(0);
-                together.setSeconds(0);
-                together.setMilliseconds(0);
-
                 $("#code").show().typewriter();
                 $("#clock-box").fadeIn(500);
                 startCountdown();
@@ -235,9 +212,6 @@
             runAsync().start();
         })();
     </script>
-    <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-        <!-- <p>Contact: <a href="https://www.facebook.com/huongthanh110202" target="_blank">Hướng IT</a></p> -->
-    </div>
 </body>
 
 </html>
