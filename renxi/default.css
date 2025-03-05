@@ -110,18 +110,35 @@ a {
 .say.signature {
     margin: 0;
     display: inline-block;
-    margin-left: 220px;
+    margin-left: 190px;
 }
 
 .signature {
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
     font-weight: bold;
     color: #FF2CEB;
 }
 
-@media screen and (max-width: 567.98px) {
+@media screen and (max-device-width: 567.98px) {
+    .say.signature {
+        margin-left: 160px;
+    }
+
     .signature {
-        font-size: 15px;
+        font-size: 18px;
+    }
+
+    body {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 } 
